@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/src/p79/!svn/ver/912/org.eclipse.paho.android.service
+END
+custom_rules.xml
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/src/p79/!svn/ver/913/org.eclipse.paho.android.service/custom_rules.xml
+END
+org.eclipse.paho.client.mqttv3-1.0.1-20141007.040217-92.jar
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/src/p79/!svn/ver/913/org.eclipse.paho.android.service/org.eclipse.paho.client.mqttv3-1.0.1-20141007.040217-92.jar
+END
+proguard-project.txt
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/src/p79/!svn/ver/913/org.eclipse.paho.android.service/proguard-project.txt
+END
+AndroidManifest.xml
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/src/p79/!svn/ver/913/org.eclipse.paho.android.service/AndroidManifest.xml
+END
+build.xml
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/src/p79/!svn/ver/913/org.eclipse.paho.android.service/build.xml
+END
+ic_launcher-web.png
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/src/p79/!svn/ver/913/org.eclipse.paho.android.service/ic_launcher-web.png
+END
+project.properties
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/src/p79/!svn/ver/913/org.eclipse.paho.android.service/project.properties
+END
+.project
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/src/p79/!svn/ver/913/org.eclipse.paho.android.service/.project
+END
+lint.xml
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/src/p79/!svn/ver/913/org.eclipse.paho.android.service/lint.xml
+END
+.classpath
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/src/p79/!svn/ver/913/org.eclipse.paho.android.service/.classpath
+END

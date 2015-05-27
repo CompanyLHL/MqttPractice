@@ -1,0 +1,143 @@
+这是一个客户端来连接服务，然后得到服务那边传过来的信息，一个sub，一个pub；
+sub：代表客户端这边去订阅，当然，这里会有一个topicname；
+pub：就是发布，然后，只要订阅了发布中的那个topicname的客户端都会收到这条消息
+当然，这里的pub，以及sub，都是需要一个用来中转或者传话的一个服务。
+
+
+这里考虑到这种即时通信，我们用了mqtt。
+
+
+
+这个客户端模拟传播的数据进行json格式。需要传递的是当前电表的订阅的名字，以及电表的转台，
+
+
+
+
+
+更新信息：
+
+
+路由-推 (手机/平板/PC收)
+服务状态报文
+status/meter/138000121397
+频率1s每次
+collected=采集服务状态
+shared=数据转发分享服务状态
+{"collected":true,"shared":true,"time":140000000.00000}
+
+
+手机/平板/PC-推 (路由收)
+控制报文
+ctrl/meter/138000121397
+name: collected | shared
+{"name":"collected","stat":"on"}
+
+
+
+	 Notify.toast(context, messageString, Toast.LENGTH_LONG);
+		String getMessage = messageString.substring(
+				messageString.indexOf("{") - 1, messageString.indexOf("}") + 1);
+		
+		UpdataUI(getMessage);
+		// }
+
+	}
+
+	/**
+	 * 得到publish的数据，然后进行解析 定义两个变量来的得到的信息
+	 * */
+	boolean isCollected = false;
+	boolean isShared = false;
+	double time = 0.00;
+
+	public void UpdataUI(String messString) {
+		GetMeterInfo getMeterInfo = new GetMeterInfo();
+		getMeterInfo.paseRespones(messString.toString());
+		isCollected = getMeterInfo.isCollected;
+		isShared = getMeterInfo.isShared;
+		time = getMeterInfo.time;
+		Constants.Collected = isCollected;
+		Constants.Shared = isShared;
+		Notify.toast(context, "--" + isCollected + "--" + isShared + "--"
+				+ time, Toast.LENGTH_LONG);
+	}
+
+
+
+
+静态变量的所有东西
+
+package org.eclipse.paho.android.service;
+
+import android.net.Uri;
+
+public class Constants {
+
+	public static final String TAG = "hef";
+	public static final String SERVER = "COM.EXAMPLE.STUDENTDEMO";
+	// 控制服务启动
+	public static final String ACTION_START = SERVER + ".START";
+	// 控制服务停止
+	public static final String ACTION_STOP = SERVER + ".STOP";
+	// 服务保持链接
+	public static final String ACTION_KEEPALIVE = SERVER + ".KEEP_ALIVE";
+	// 重新链接
+	public static final String ACTION_RECONNECT = SERVER + ".RECONNECT";
+
+	// We store in the preferences, whether or not the service has been started
+	public static final String PREF_STARTED = "isStarted";
+	// We also store the deviceID (target)
+	public static final String PREF_DEVICE_ID = "deviceID";
+
+	// This the application level keep-alive interval, that is used by the
+	// AlarmManager
+	// to keep the connection active, even when the device goes to sleep.
+	// public static final long KEEP_ALIVE_INTERVAL = 1000 * 60 * 60*24;
+	public static final int KEEP_ALIVE_INTERVAL = 10;
+	// Retry intervals, when the connection is lost. 重试间隔
+	public static final long INITIAL_RETRY_INTERVAL = 1000 * 60;
+	public static final long MAXIMUM_RETRY_INTERVAL = 1000 * 60 * 30;
+	/**
+	 * Property name for the history field in {@link Connection} object for use
+	 * with {@link java.beans.PropertyChangeEvent}55633964
+	 **/
+	public static final String historyProperty = "history";
+
+	/**
+	 * Property name for the connection status field in {@link Connection}
+	 * object for use with {@link java.beans.PropertyChangeEvent}
+	 **/
+	public static final String ConnectionStatusProperty = "connectionStatus";
+	public static final String empty = new String();
+	/** Show History Request Code **/
+	public static final int showHistory = 3;
+
+	public static final int TIMEOUT = 1000;
+	/**
+	 * MQTT 服务器所在的ip 地址
+	 */
+	public static String MQTT_SERVER = "192.168.150.113";
+	/**
+	 * MQTT 服务器所在的端口号
+	 */
+	public static int MQTT_PORT = 1883;
+	// 订阅消息的主题
+	public static String[] subscrbieTopics = { "status/meter/138000121397","meter/server1","meter/server2" };
+	// 订阅主题的消息级别
+	public static int[] qos = { 0,2,0 };
+	public static int QOS = 2;
+	public static boolean cleanSession = false;// 是否清除会话 false 持久链接 TRUE 该会话内有效
+	public static boolean ssl = false;// 用ssl 协议
+
+	
+}
+
+
+
+MQTT。。。。流程：
+1.点击按钮，连接服务（判断：当检测设备已经连接后，在开启服务。）
+
+进入都开启服务环节：
+
+
+

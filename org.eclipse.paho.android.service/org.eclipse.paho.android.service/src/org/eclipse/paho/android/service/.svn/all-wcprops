@@ -1,0 +1,101 @@
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/src/p79/!svn/ver/913/org.eclipse.paho.android.service/src/org/eclipse/paho/android/service
+END
+Constants.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/src/p79/!svn/ver/935/org.eclipse.paho.android.service/src/org/eclipse/paho/android/service/Constants.java
+END
+MqttDeliveryTokenAndroid.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/src/p79/!svn/ver/913/org.eclipse.paho.android.service/src/org/eclipse/paho/android/service/MqttDeliveryTokenAndroid.java
+END
+MqttTraceHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/src/p79/!svn/ver/913/org.eclipse.paho.android.service/src/org/eclipse/paho/android/service/MqttTraceHandler.java
+END
+MqttConnection.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/src/p79/!svn/ver/935/org.eclipse.paho.android.service/src/org/eclipse/paho/android/service/MqttConnection.java
+END
+ParcelableMqttMessage.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/src/p79/!svn/ver/913/org.eclipse.paho.android.service/src/org/eclipse/paho/android/service/ParcelableMqttMessage.java
+END
+MqttServiceConstants.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/src/p79/!svn/ver/913/org.eclipse.paho.android.service/src/org/eclipse/paho/android/service/MqttServiceConstants.java
+END
+package.html
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/src/p79/!svn/ver/913/org.eclipse.paho.android.service/src/org/eclipse/paho/android/service/package.html
+END
+SharePreferenceUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/src/p79/!svn/ver/926/org.eclipse.paho.android.service/src/org/eclipse/paho/android/service/SharePreferenceUtil.java
+END
+MqttServiceBinder.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/src/p79/!svn/ver/913/org.eclipse.paho.android.service/src/org/eclipse/paho/android/service/MqttServiceBinder.java
+END
+MessageStore.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/src/p79/!svn/ver/913/org.eclipse.paho.android.service/src/org/eclipse/paho/android/service/MessageStore.java
+END
+MqttTokenAndroid.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/src/p79/!svn/ver/913/org.eclipse.paho.android.service/src/org/eclipse/paho/android/service/MqttTokenAndroid.java
+END
+AlarmPingSender.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/src/p79/!svn/ver/913/org.eclipse.paho.android.service/src/org/eclipse/paho/android/service/AlarmPingSender.java
+END
+MqttAndroidClient.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/src/p79/!svn/ver/926/org.eclipse.paho.android.service/src/org/eclipse/paho/android/service/MqttAndroidClient.java
+END
+DatabaseMessageStore.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/src/p79/!svn/ver/913/org.eclipse.paho.android.service/src/org/eclipse/paho/android/service/DatabaseMessageStore.java
+END
+Status.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/src/p79/!svn/ver/913/org.eclipse.paho.android.service/src/org/eclipse/paho/android/service/Status.java
+END
+MqttService.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/src/p79/!svn/ver/926/org.eclipse.paho.android.service/src/org/eclipse/paho/android/service/MqttService.java
+END

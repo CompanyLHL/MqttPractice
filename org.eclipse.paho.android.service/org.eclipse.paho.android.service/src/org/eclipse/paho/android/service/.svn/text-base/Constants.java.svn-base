@@ -1,0 +1,123 @@
+package org.eclipse.paho.android.service;
+
+
+import android.net.Uri;
+
+
+public class Constants {
+
+	public static final String TAG = "hef";
+	public static final String SERVER = "COM.EXAMPLE.STUDENTDEMO";
+	// 控制服务启动
+	public static final String ACTION_START = SERVER + ".START";
+	// 控制服务停止
+	public static final String ACTION_STOP = SERVER + ".STOP";
+	// 服务保持链接
+	public static final String ACTION_KEEPALIVE = SERVER + ".KEEP_ALIVE";
+	// 重新链接
+	public static final String ACTION_RECONNECT = SERVER + ".RECONNECT";
+
+	// We store in the preferences, whether or not the service has been started
+	public static final String PREF_STARTED = "isStarted";
+	// We also store the deviceID (target)
+	public static final String PREF_DEVICE_ID = "deviceID";
+
+	// This the application level keep-alive interval, that is used by the
+	// AlarmManager
+	// to keep the connection active, even when the device goes to sleep.
+//	public static final long KEEP_ALIVE_INTERVAL = 1000 * 60 * 60*24;
+	public static final int KEEP_ALIVE_INTERVAL = 10;
+	// Retry intervals, when the connection is lost.  重试间隔
+	public static final long INITIAL_RETRY_INTERVAL = 1000 * 10;
+	public static final long MAXIMUM_RETRY_INTERVAL = 1000 * 60 * 30;
+	// We store the last retry interval
+	public static final String PREF_RETRY = "retryInterval";
+	// Notification title
+	public static String NOTIF_TITLE = "Tokudu";
+	// Notification id
+	public static final int NOTIF_CONNECTED = 0;
+	  /** Property name for the history field in {@link Connection} object for use with {@link java.beans.PropertyChangeEvent} **/
+	public  static final String historyProperty = "history";
+
+	  /** Property name for the connection status field in {@link Connection} object for use with {@link java.beans.PropertyChangeEvent} **/
+	public static final String ConnectionStatusProperty = "connectionStatus";
+	public  static final String empty = new String();
+	  /** Show History Request Code  **/
+	public  static final int showHistory = 3;
+	  
+	/**
+	 * MQTT 服务器所在的ip 地址
+	 */
+	  public static   String MQTT_SERVER = "10.0.0.113";
+	  /**
+		 * MQTT 服务器所在的端口号*/
+	  public static   int  MQTT_PORT = 1883;
+	// 订阅消息的主题
+	  public static  String[] subscrbieTopics = { "student"};
+	  //订阅主题的消息级别
+	  public static int[] qos = {2};
+	  public static int QOS = 2;
+	  public static boolean cleanSession = false;//是否清除会话 false 持久链接      TRUE 该会话内有效
+	  public static boolean ssl = false;//用ssl 协议
+	  
+	  
+	  public static final int NOTIFICATION_LOCK_SCREEN = 10;
+		public static final int NOTIFICATION_UN_LOCK_SCREEN = 11;
+		public static final int NOTIFICATION_STUDENT_ONLINE = 20;
+		public static final int NOTIFICATION_STUDENT_OFFLINE = 21;
+		public static final int NOTIFICATION_NEW_LESSON = 30;
+		public static final int NOTIFICATION_DISMISS_LESSON = 31;
+
+		/**
+		 * 教师发题
+		 */
+		public static final int NOTIFICATION_TEACHER_TEST = 1000;
+		/**
+		 * 启动计时应用
+		 */
+		public static final int NOTIFICATION_LAUNCH_COUNT = 500;
+		/**
+		 * 结束计时应用
+		 */
+		public static final int NOTIFICATION_END_COUNT = 501;
+		/**
+		 * 不计时的情况下结束答题
+		 */
+		public static final int NOTIFICATION_END_TEST_UNTIME = 502;
+
+		public static final String REGISTER = "/registerHappy";
+		public static final String UNREGISTER = "/unRegisterHappy";
+		// 进入书页
+		public static final int NOTIFICATION_READER_ENTER = 300;
+
+		// 消息 打开应用
+		public static final int NOTIFICATION_OPEN_APP = 60;
+
+		// 消息接收成功
+		public static final int NOTIFICATION_LOCK_SCREEN_SUCCESS = 1001;
+		public static final int NOTIFICATION_UN_LOCK_SCREEN_SUCCESS = 1002;
+		public static final int NOTIFICATION_TEACHER_TEST_SUCCESS = 1003;
+		public static final int NOTIFICATION_NEW_LESSON_SUCCESS = 1004;
+		public static final int NOTIFICATION_DISMISS_LESSON_SUCCESS = 1005;
+		public static final int NOTIFICATION_OPEN_APP_SUCCESS = 1006;
+		public static final int NOTIFICATION_EXAM_NEW = 120;
+		public static final int NOTIFICATION_READER_ENTER_SUCCESS = 1007;
+		
+		public static final class Happy {
+			public final static String MESSAGE = "message";
+			public final static String SYSID = "sysID";
+			public final static Uri HAPPY_URI = Uri.parse("content://" + AUTHORITY
+					+ "/happys");
+		}
+		public static final int DEBUG = 1;
+		public static final String AUTHORITY = "com.happy.providers";
+		public static final int TIMEOUT = 1000;
+		private static int count = 0;
+		public static int getCount() {
+			return count;
+		}
+
+		public static void setCount(int count) {
+			Constants.count = count;
+		}
+}

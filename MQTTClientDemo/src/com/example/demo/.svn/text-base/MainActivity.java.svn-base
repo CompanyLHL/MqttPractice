@@ -1,0 +1,117 @@
+package com.example.studentdemo;
+
+import java.io.IOException;
+
+import org.eclipse.paho.android.service.SharePreferenceUtil;
+
+import android.app.Activity;
+import android.content.Intent;
+import android.graphics.drawable.BitmapDrawable;
+import android.os.Bundle;
+import android.view.KeyEvent;
+import android.view.View;
+import android.widget.ImageButton;
+import android.widget.Toast;
+
+import com.example.studentdemo.service.BackgroundService;
+import com.example.studentdemo.util.Notify;
+import com.xinqiao.navigationbar.NavigationBar;
+import com.xinqiao.navigationbar.NavigationBar.ApplicationCallBack;
+
+public class MainActivity extends Activity {
+
+	private SharePreferenceUtil preferens;
+	private NavigationBar navigationBar;
+	private ImageButton menu_bar;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		// this.requestWindowFeature(Window.FEATURE_NO_TITLE);
+		// this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+		// WindowManager.LayoutParams.FLAG_FULLSCREEN);
+		setContentView(R.layout.activity_main);
+		navigationBar = (NavigationBar) findViewById(R.id.navigationBar);
+		setNavigationBar(navigationBar);
+
+		preferens = new SharePreferenceUtil(this);
+		preferens.setDeviceId();
+		
+		if(navigationBar.isDefaultWifi()){
+			Intent intent = new Intent(this, BackgroundService.class);
+			startService(intent);
+		}else{
+			Notify.toast(getBaseContext(), "请检查您的网络，无连接 或者 连接不正确！", Toast.LENGTH_LONG);
+			finish();
+		}
+		
+		
+
+	}
+
+
+
+	@Override
+	protected void onDestroy() {
+		navigationBar.destory(MainActivity.this);
+		if(navigationBar.isDefaultWifi()){
+			Intent intent = new Intent(this, BackgroundService.class);
+			stopService(intent);
+		}
+		super.onDestroy();
+	}
+
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		if (keyCode == KeyEvent.KEYCODE_BACK) {
+			return false;
+		} else {
+			return super.onKeyDown(keyCode, event);
+		}
+	}
+
+	private void setNavigationBar(NavigationBar navigationBar) {
+
+		// 标题栏image是否是返回键
+		try {
+			navigationBar.setTitleBack(false, new BitmapDrawable(
+					getBaseContext().getAssets().open("mqtt.png")));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		navigationBar.getNavigationBarTitleText().setText("MQTT");
+
+		menu_bar = navigationBar.getNavigationBarMenu();
+		menu_bar.setVisibility(View.GONE);
+		// 应用调用的接口
+		navigationBar.setApplicationCallBack(new ApplicationCallBack() {
+
+			@Override
+			public void menuClick(ImageButton button) {
+
+			}
+
+			@Override
+			public void callBackClick(ImageButton button) {
+
+			}
+
+			@Override
+			public void classOverClick(ImageButton button) {
+
+			}
+
+			@Override
+			public void searchClick(ImageButton button) {
+
+			}
+
+			@Override
+			public void moreClick(ImageButton button) {
+
+			}
+		});
+
+	}
+
+}
